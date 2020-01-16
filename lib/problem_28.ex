@@ -2,7 +2,7 @@ defmodule ProjectEuler.Problem28 do
   require Integer
 
   def solution() do
-    oddList = Enum.filter(1..1001, fn x -> Integer.is_odd(x) end)
+    oddList = Enum.take_every(1..1001, 2)
     Enum.map(0..(length(oddList)-2), fn x ->
       start_number = Enum.fetch(oddList, x) |> elem(1) |> :math.pow(2)
       current_number  = Enum.fetch(oddList, (x+1)) |> elem(1)
